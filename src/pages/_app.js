@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/global.css';
 import Layout from '@/components/layout/layout';
+import '../styles/global.css';
 
 const CoreApp = ({ Component, pageProps, ...props }) => {
 	return (
