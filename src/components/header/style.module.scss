@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+
+@mixin breakpoint($point) {
+    @if $point == md {
+        @media (min-width: 1324px) {
+            @content;
+        }
+    }
+}
+
+.logo {
+	font-family: 'Cinzel', serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 48px;
+	cursor: pointer;
+}
+
+.header {
+	height: 110px;
+	background-color: #A787FF;
+	transition: 0.3s ease all;
+
+	&__content {
+		height: 100%;
+		overflow: hidden;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		position: relative;
+		color: #FFFFFF;
+		z-index: 100;
+
+		@media screen and (max-width: 1324px) {
+			gap: 200px;
+		}
+	}
+}
+
+.navbar {
+	font-family: "Varela", sans-serif;
+  	font-weight: 400;
+  	font-style: normal;
+	font-size: 20px;
+	top: 110px;
+	right: 100%;
+	bottom: 0;
+	width: 55%;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	text-align: center;
+	background: rgba(#A787FF, 1);
+	backdrop-filter: blur(3px);
+	transform: translate(0);
+	transition: 0.3s ease transform;
+
+	@include breakpoint(md) {
+		transform: none;
+		flex-direction: row;
+		background: transparent;
+		width: auto;
+		height: 100%;
+		position: static;
+	}
+
+	ul {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		padding: 0;
+		margin: 0;
+		gap: 75px;
+
+		@include breakpoint(md) {
+			flex-direction: row;
+			align-items: center;
+			margin-left: calc(0.5rem + #{25px});
+			gap: 150px;
+
+		}
+
+		li {
+			cursor: pointer;
+			padding: 0;
+			border-radius: 25px;
+			padding: 7px;
+			&:not(:last-child) {
+				@include breakpoint(md) {
+					margin-bottom: 0;
+					margin-right: 16px;
+					&:hover {
+						background-color: #FFF;
+						color: #A787FF;
+						transition: all 0.2s;
+					}
+				}
+			}
+		}
+	}
+	&.isMenu {
+		transform: translate(100%);
+	}
+}
+
+.cart {
+	cursor: pointer;
+}
+
+.rightIcons {
+	display: flex;
+	gap: 35px;
+}
+
+.line {
+	width: 100%;
+	height: 1px;
+	background: #FFF;
+	bottom: 50px;
+
+
+	@include breakpoint(md) {
+		display: none;
+	}
+}
+
+.toggleDiv {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	font-size: 2rem;
+	transition: 0.3s ease all;
+	position: relative;
+	border-radius: 25px;
+	padding: 4px;
+
+	&:hover {
+		color: #A787FF;
+		background-color: #FFF;
+	}
+
+	@include breakpoint(md) {
+		display: none;
+	}
+}
