@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
 		<>
 			<Head>
 				<link rel="shortcut icon" href="/favicon.ico" />
-				<title>Gabrielle e Lucas (07/09/2024)</title>
+				<title>Gabrielle e Lucas | (07/09/2024)</title>
 			</Head>
 			<Header>
 				<main>{children}</main>

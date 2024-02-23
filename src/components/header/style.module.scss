@@ -1,16 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
 
 @mixin breakpoint($point) {
-    @if $point == md {
-        @media (min-width: 1324px) {
-            @content;
-        }
-    }
+	@if $point ==md {
+		@media (min-width: 1350px) {
+			@content;
+		}
+	}
 }
 
 .logo {
 	font-family: 'Cinzel', serif;
-	font-optical-sizing: auto;
 	font-weight: 400;
 	font-style: normal;
 	font-size: 48px;
@@ -32,7 +31,7 @@
 		color: #FFFFFF;
 		z-index: 100;
 
-		@media screen and (max-width: 1324px) {
+		@media screen and (max-width: 1350px) {
 			gap: 200px;
 		}
 	}
@@ -40,8 +39,8 @@
 
 .navbar {
 	font-family: "Varela", sans-serif;
-  	font-weight: 400;
-  	font-style: normal;
+	font-weight: 400;
+	font-style: normal;
 	font-size: 20px;
 	top: 110px;
 	right: 100%;
@@ -87,10 +86,12 @@
 			padding: 0;
 			border-radius: 25px;
 			padding: 7px;
+
 			&:not(:last-child) {
 				@include breakpoint(md) {
 					margin-bottom: 0;
 					margin-right: 16px;
+
 					&:hover {
 						background-color: #FFF;
 						color: #A787FF;
@@ -100,6 +101,7 @@
 			}
 		}
 	}
+
 	&.isMenu {
 		transform: translate(100%);
 	}

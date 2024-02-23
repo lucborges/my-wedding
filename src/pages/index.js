@@ -5,9 +5,6 @@ import React from 'react';
 const Wedding = () => {
 	return (
 		<>
-			<Head>
-				<title>Gabrielle e Lucas</title>
-			</Head>
 			<Dashboard />
 		</>
 	);
