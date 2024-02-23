@@ -1,9 +1,158 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
 
 
+.dashboardContent {
+	display: flex;
+	margin: 110px 120px 0 120px;
+
+	@media screen and (max-width: 1681px) {
+		margin: 30px 80px 0 80px;
+		align-items: center;
+	}
+
+	@media screen and (max-width: 1350px) {
+		flex-direction: column;
+	}
+
+	@media screen and (max-width: 842px) {
+		margin: 30px 40px 20px 40px;
+	}
+}
+
 .title {
 	font-family: 'Cinzel', serif;
-	font-optical-sizing: auto;
 	font-weight: 400;
 	font-style: normal;
+	font-size: 96px;
+	margin: 15px 0 0 0;
+
+	@media screen and (max-width: 1795px) {
+		display: flex;
+		font-size: 84px;
+	}
+
+	@media screen and (max-width: 1681px) {
+		font-size: 72px;
+	}
+
+	@media screen and (max-width: 917px) {
+		font-size: 64px;
+	}
+
+	@media screen and (max-width: 690px) {
+		font-size: 52px;
+	}
+
+	@media screen and (max-width: 580px) {
+		font-size: 46px;
+	}
+
+}
+
+.image {
+	filter: saturate(1.2);
+	border-radius: 50%;
+	object-fit: cover;
+	overflow: hidden;
+
+	@media screen and (max-width: 1681px) {
+		width: 490px;
+		height: 500px;
+	}
+
+	@media screen and (max-width: 1350px) {
+		align-self: center;
+		width: 850px;
+		height: 820px;
+	}
+
+	@media screen and (max-width: 890px) {
+		width: 650px;
+		height: 630px;
+	}
+
+	@media screen and (max-width: 690px) {
+		width: 510px;
+		height: 490px;
+	}
+}
+
+.textContent {
+	margin-left: 70px;
+
+	@media screen and (max-width: 1350px) {
+		margin-left: 0;
+	}
+
+}
+
+.titleGroup {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.remainingDays {
+	font-family: 'Cinzel', serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 32px;
+	margin-top: -10px;
+
+	@media screen and (max-width: 1795px) {
+		font-size: 28px;
+	}
+
+	@media screen and (max-width: 1681px) {
+		font-size: 26px;
+	}
+
+	@media screen and (max-width: 917px) {
+		font-size: 22px;
+	}
+
+	@media screen and (max-width: 842px) {
+		font-size: 21px;
+	}
+
+	@media screen and (max-width: 652px) {
+		font-size: 19px;
+	}
+
+}
+
+.span {
+	display: flex;
+	align-items: center;
+	font-family: "Varela", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 24px;
+	margin: 55px 0 0 7px;
+
+	@media screen and (max-width: 1795px) {
+		font-size: 20px;
+	}
+
+	@media screen and (max-width: 1350px) {
+		text-align: center;
+		margin: 25px 0 55px 0;
+	}
+
+	@media screen and (max-width: 1681px) {
+		font-size: 18px;
+	}
+
+	@media screen and (max-width: 917px) {
+		font-size: 20px;
+	}
+
+	@media screen and (max-width: 842px) {
+		font-size: 18px;
+	}
+
+	@media screen and (max-width: 652px) {
+		font-size: 16px;
+	}
+
 }
