@@ -52,7 +52,7 @@ const Header = ({ children }) => {
 							<div className={s.line}></div>
 							<li onClick={() => {
 								setMenuOpen(false);
-								router.push('/confirme-sua-presença');
+								router.push('/confirme-sua-presenca');
 							}}>Confirme sua presença</li>
 							<li onClick={() => {
 								setMenuOpen(false);
@@ -68,14 +68,14 @@ const Header = ({ children }) => {
 					<div className={s.rightIcons}>
 						<div>
 							<Badge badgeContent={2} color="error" className={s.badge}>
-								<ShoppingCartIcon fontSize='large'className={s.cart} />
+								<ShoppingCartIcon fontSize='large' className={s.cart} />
 							</Badge>
 						</div>
 						<div className={s.toggleDiv}>
 							{!menuOpen ? (
-								<MenuIcon fontSize='large' className={s.toggle} onClick={menuToggleHandler}/>
+								<MenuIcon fontSize='large' className={s.toggle} onClick={menuToggleHandler} />
 							) : (
-								<CloseIcon fontSize='large' className={s.close} onClick={menuToggleHandler}/>
+								<CloseIcon fontSize='large' className={s.close} onClick={menuToggleHandler} />
 							)}
 						</div>
 					</div>
