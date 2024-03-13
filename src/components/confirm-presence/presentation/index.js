@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import s from './style.module.scss';
 import TextField from '@mui/material/TextField';
-import { FormControlLabel, IconButton, Radio, RadioGroup } from '@mui/material';
+import { Button, FormControlLabel, IconButton, Radio, RadioGroup } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
@@ -51,6 +51,7 @@ const ConfirmPresence = () => {
 								name="radio-buttons-group"
 								row
 								required
+
 							>
 								<FormControlLabel value="sim" control={<Radio />} label="Sim" color='primary'/>
 								<FormControlLabel value="não" control={<Radio />} label="Não" color='primary'/>
@@ -140,10 +141,21 @@ const ConfirmPresence = () => {
 							<label>Observações</label>
 						</div>
 						<div className={s.col75}>
-							<TextField placeholder='Deixe aqui suas observações' fullWidth/>
+							<TextField
+								placeholder='Deixe aqui suas observações'
+								fullWidth
+								required
+								className={s.obs}
+							/>
 						</div>
 					</div>
 				</div>
+				<Button
+					className={s.confirmButton}
+					variant='contained'
+				>
+					Confirmar presença
+				</Button>
 			</div>
 		</>
 	);
