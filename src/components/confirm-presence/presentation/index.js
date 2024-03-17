@@ -1,17 +1,29 @@
 import React, { useState } from 'react';
 import s from './style.module.scss';
+import { useRouter } from 'next/navigation';
 
 import TextField from '@mui/material/TextField';
-import { Button, FormControlLabel, IconButton, Radio, RadioGroup } from '@mui/material';
+import {
+	Button,
+	FormControlLabel,
+	FormHelperText,
+	IconButton,
+	Radio,
+	RadioGroup,
+	Stack
+} from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import Modal from '@mui/material/Modal';
 import CloseIcon from '@mui/icons-material/Close';
+import Image from 'next/image';
 
 const ConfirmPresence = () => {
 	const [adultCounter, setAdultCounter] = useState(0);
 	const [childCounter, setChildCounter] = useState(0);
 	const [open, setOpen] = useState(false);
+
+	const router = useRouter();
 
 	const handleOpen = () =>
 		setOpen(true);
@@ -72,6 +84,9 @@ const ConfirmPresence = () => {
 					<div className={s.row}>
 						<div className={s.col25}>
 							<label>Você irá a cerimônia?*</label>
+							<FormHelperText className={s.helper} onClick={() => router.push('/mais-informacoes')}>
+								Mais informações sobre a cerimônia
+							</FormHelperText>
 						</div>
 						<div className={s.col75}>
 							<RadioGroup
@@ -81,12 +96,16 @@ const ConfirmPresence = () => {
 							>
 								<FormControlLabel value="sim" control={<Radio />} label="Sim" color='primary'/>
 								<FormControlLabel value="não" control={<Radio />} label="Não" color='primary'/>
+
 							</RadioGroup>
 						</div>
 					</div>
 					<div className={s.row}>
 						<div className={s.col25}>
 							<label>Você irá ao restaurante?*</label>
+							<FormHelperText className={s.helper} onClick={() => router.push('/mais-informacoes')}>
+								Mais informações sobre o restaurante
+							</FormHelperText>
 						</div>
 						<div className={s.col75}>
 							<RadioGroup
@@ -195,8 +214,21 @@ const ConfirmPresence = () => {
 				>
 					<div className={s.modalContainer}>
 						<IconButton>
-							<CloseIcon onClick={handleClose}/>
+							<CloseIcon color='primary' onClick={handleClose} fontSize='medium'/>
 						</IconButton>
+						<div className={s.contentContainer}>
+							<Image src='/email-sticker.png' width={171} height={171}/>
+							<h1 className={s.modalTitle}>Estamos muito felizes com a sua presença!</h1>
+							<span className={s.modalDescription}>
+								Acabamos de enviar no seu email o convite. Caso tenha algum<br/>
+								imprevisto peço que nos comunique com o máximo<br/>
+								de antecedência possível!
+							</span>
+							<Stack spacing={3} direction="row" className={s.buttonGroup}>
+								<Button variant='outlined'>Fechar</Button>
+								<Button variant='contained' style={{ color: '#fff'}}>Não recebi o email</Button>
+							</Stack>
+						</div>
 					</div>
 				</Modal>
 			</div>

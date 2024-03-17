@@ -94,3 +94,51 @@
 	font-size: 22px;
 	color: #A787FF;
 }
+
+.helper {
+	margin-top: 0;
+	cursor: pointer;
+
+	&:hover {
+		color: #A787FF;
+		transition: all 0.3s;
+	}
+}
+
+// MODAL
+
+.modalContainer {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 5px;
+	background-color: #fff;
+	padding: 15px;
+}
+
+.contentContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 35px;
+}
+
+.modalTitle {
+	font-family: 'Cinzel', serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 24px;
+}
+
+.modalDescription {
+	font-family: "Varela", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 18px;
+	text-align: center;
+}
+
+.buttonGroup {
+	margin-top: 75px;
+}
