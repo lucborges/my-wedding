@@ -81,7 +81,7 @@ const Header = ({ children }) => {
 					</div>
 				</div>
 			</header>
-			<div>{children}</div>
+			<div className={s.childrenContent}>{children}</div>
 		</>
 	);
 };
