@@ -12,6 +12,10 @@
 	font-style: normal;
 	font-size: 48px;
 	cursor: pointer;
+
+	@media screen and (max-width: 451px) {
+		font-size: 40px;
+	}
 }
 
 .header {
@@ -30,7 +34,7 @@
 		z-index: 100;
 
 		@media screen and (max-width: 1350px) {
-			gap: 200px;
+			gap: 60px;
 		}
 	}
 }

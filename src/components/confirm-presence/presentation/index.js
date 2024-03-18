@@ -38,7 +38,7 @@ const ConfirmPresence = () => {
 			inputs.push(
 				<div className={s.row}>
 					<div className={s.col25}>
-						<label>Nome do acompanhante*</label>
+						<label>Nome do adulto*</label>
 					</div>
 					<div className={s.col75}>
 						<TextField size='small' placeholder='Digite o nome do adulto aqui' fullWidth required/>
@@ -224,9 +224,9 @@ const ConfirmPresence = () => {
 								imprevisto peço que nos comunique com o máximo<br/>
 								de antecedência possível!
 							</span>
-							<Stack spacing={3} direction="row" className={s.buttonGroup}>
-								<Button variant='outlined'>Fechar</Button>
+							<Stack direction="row" className={s.buttonGroup}>
 								<Button variant='contained' style={{ color: '#fff'}}>Não recebi o email</Button>
+								<Button variant='outlined' onClick={handleClose}>Fechar</Button>
 							</Stack>
 						</div>
 					</div>
