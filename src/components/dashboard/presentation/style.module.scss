@@ -1,9 +1,9 @@
 .dashboardContent {
 	display: flex;
-	margin: 110px 120px 0 120px;
+	margin: 160px 120px 0 120px;
 
 	@media screen and (max-width: 1681px) {
-		margin: 30px 80px 0 80px;
+		margin: 130px 80px 0 80px;
 		align-items: center;
 	}
 
@@ -12,7 +12,11 @@
 	}
 
 	@media screen and (max-width: 842px) {
-		margin: 30px 40px 20px 40px;
+		margin: 130px 40px 20px 40px;
+	}
+
+	@media screen and (max-width: 412px) {
+		margin: 130px 25px 20px 25px;
 	}
 }
 
@@ -44,6 +48,26 @@
 		font-size: 46px;
 	}
 
+	@media screen and (max-width: 524px) {
+		font-size: 42px;
+	}
+
+	@media screen and (max-width: 487px) {
+		font-size: 38px;
+	}
+
+	@media screen and (max-width: 448px) {
+		font-size: 34px;
+	}
+
+	@media screen and (max-width: 408px) {
+		font-size: 30px;
+	}
+
+	@media screen and (max-width: 370px) {
+		font-size: 26px;
+	}
+
 }
 
 .image {
@@ -51,6 +75,7 @@
 	border-radius: 50%;
 	object-fit: cover;
 	overflow: hidden;
+	z-index: 5;
 
 	@media screen and (max-width: 1681px) {
 		width: 490px;
@@ -71,6 +96,21 @@
 	@media screen and (max-width: 690px) {
 		width: 510px;
 		height: 490px;
+	}
+
+	@media screen and (max-width: 527px) {
+		width: 420px;
+		height: 390px;
+	}
+
+	@media screen and (max-width: 445px) {
+		width: 375px;
+		height: 350px;
+	}
+
+	@media screen and (max-width: 413px) {
+		width: 320px;
+		height: 300px;
 	}
 }
 
@@ -116,6 +156,15 @@
 		font-size: 19px;
 	}
 
+	@media screen and (max-width: 541px) {
+		font-size: 18px;
+		text-align: center;
+	}
+
+	@media screen and (max-width: 413px) {
+		font-size: 14px;
+		text-align: center;
+	}
 }
 
 .span {
@@ -150,6 +199,10 @@
 
 	@media screen and (max-width: 652px) {
 		font-size: 16px;
+	}
+
+	@media screen and (max-width: 412px) {
+		font-size: 13px;
 	}
 
 }
