@@ -4,14 +4,17 @@ import Layout from '@/components/layout/layout';
 import '../styles/global.css';
 import { ThemeProvider } from '@mui/material';
 import { theme } from '@/components/layout/theme';
+import { CartProvider } from '@/context/cart';
 
 const CoreApp = ({ Component, pageProps, ...props }) => {
 	return (
 		<>
 			<ThemeProvider theme={theme}>
-				<Layout>
-					<Component {...pageProps} {...props} />
-				</Layout>
+				<CartProvider>
+					<Layout>
+						<Component {...pageProps} {...props} />
+					</Layout>
+				</CartProvider>
 			</ThemeProvider>
 		</>
 

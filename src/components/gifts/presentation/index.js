@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import s from './style.module.scss';
 import giftsList from 'server/mocks/giftsMock';
 import Image from 'next/image';
 import { Button } from '@mui/material';
+import { CartContext } from '@/context/cart';
+import { useRouter } from 'next/router';
 
 const Gifts = () => {
-	console.log(giftsList);
+	const { addToCart } = useContext(CartContext);
+	const router = useRouter();
 	return (
 		<>
 			<div className={s.giftContainer}>
@@ -13,11 +16,20 @@ const Gifts = () => {
 				<ul className={s.cardContainer}>
 					{giftsList.map((gift) => (
 						<>
-							<li className={s.giftCard}>
+							<li className={s.giftCard} key={gift}>
 								<Image src={gift.image} width={240} height={240}/>
 								<p className={s.giftName}>{gift.name}</p>
 								<p className={s.giftValue}>{gift.value}</p>
-								<Button variant='contained' className={s.button}>Presentear</Button>
+								<Button
+									variant='contained'
+									className={s.button}
+									onClick={() => {
+										addToCart(gift);
+										router.push('/carrinho');
+									}}
+								>
+									Presentear
+								</Button>
 							</li>
 						</>
 					))}
