@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Button } from '@mui/material';
 import { CartContext } from '@/context/cart';
 import { useRouter } from 'next/router';
+import { formatBrazilianMoney } from '@/lib/formatBrazilianMoney';
 
 const Gifts = () => {
 	const { addToCart } = useContext(CartContext);
@@ -19,7 +20,7 @@ const Gifts = () => {
 							<li className={s.giftCard} key={gift}>
 								<Image src={gift.image} width={240} height={240}/>
 								<p className={s.giftName}>{gift.name}</p>
-								<p className={s.giftValue}>{gift.value}</p>
+								<p className={s.giftValue}>{formatBrazilianMoney(gift.value)}</p>
 								<Button
 									variant='contained'
 									className={s.button}
