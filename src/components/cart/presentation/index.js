@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import s from './style.module.scss';
 import { CartContext } from '@/context/cart';
 import Image from 'next/image';
@@ -8,10 +8,23 @@ import {
 	Stack
 } from '@mui/material';
 import { useRouter } from 'next/navigation';
+import Message from '../message/presentation';
 
 const Cart = () => {
 	const { cartItems, removeFromCart, getCartTotal } = useContext(CartContext);
+	const { isFinished, setIsFinished } = useState(false);
 	const router = useRouter();
+
+	const handleIsFinished = () => {
+		setIsFinished(true);
+	};
+
+	if(isFinished) {
+		return (
+			<Message />
+		);
+	}
+
 	return (
 		<>
 			<div className={s.cartContainer}>
@@ -28,7 +41,7 @@ const Cart = () => {
 								<>
 									<li>
 										<div className={s.cartItem}>
-											<Image src={item.image} width={122} height={122}/>
+											<Image src={'/sadia.png'} width={122} height={122} className={s.image}/>
 											<div className={s.cartContent}>
 												<div className={s.column}>
 													<span className={s.itemName}>{item.name}</span>
@@ -52,8 +65,18 @@ const Cart = () => {
 							<span className={s.total}>{`Total: ${formatBrazilianMoney(getCartTotal())}`}</span>
 						</div>
 						<Stack direction="row" className={s.buttonGroup}>
-							<Button variant='outlined' onClick={() => router.push('/lista-de-presentes')}>Adicionar mais itens</Button>
-							<Button variant='contained' style={{ color: '#fff'}}>Continuar compra</Button>
+							<Button
+								variant='outlined'
+								onClick={() => router.push('/lista-de-presentes')}
+							>
+								Adicionar mais itens
+							</Button>
+							<Button
+								variant='contained'
+								style={{ color: '#fff'}} onClick={() => handleIsFinished()}
+							>
+								Continuar compra
+							</Button>
 						</Stack>
 					</>
 				) : (

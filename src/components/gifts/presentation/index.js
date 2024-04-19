@@ -18,7 +18,7 @@ const Gifts = () => {
 					{giftsList.map((gift) => (
 						<>
 							<li className={s.giftCard} key={gift}>
-								<Image src={gift.image} width={240} height={240}/>
+								<Image src={'/sadia.png'} width={240} height={240}/>
 								<p className={s.giftName}>{gift.name}</p>
 								<p className={s.giftValue}>{formatBrazilianMoney(gift.value)}</p>
 								<Button
