@@ -34,7 +34,7 @@ const Message = ({ total }) => {
 						</div>
 						<div className={s.col75}>
 							<TextField
-								size='large'
+								size='small'
 								placeholder='Mensagem'
 								fullWidth
 								className={s.description}

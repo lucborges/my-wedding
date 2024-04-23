@@ -12,7 +12,7 @@ import Message from '../message/presentation';
 
 const Cart = () => {
 	const { cartItems, removeFromCart, getCartTotal } = useContext(CartContext);
-	const { isFinished, setIsFinished } = useState(false);
+	const [isFinished, setIsFinished] = useState(null);
 	const router = useRouter();
 
 	const handleIsFinished = () => {
@@ -21,7 +21,7 @@ const Cart = () => {
 
 	if(isFinished) {
 		return (
-			<Message />
+			<Message total={getCartTotal()}/>
 		);
 	}
 
@@ -73,7 +73,8 @@ const Cart = () => {
 							</Button>
 							<Button
 								variant='contained'
-								style={{ color: '#fff'}} onClick={() => handleIsFinished()}
+								style={{ color: '#fff'}}
+								onClick={() => handleIsFinished()}
 							>
 								Continuar compra
 							</Button>
