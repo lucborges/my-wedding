@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import s from './style.module.scss';
 import { useRouter } from 'next/navigation';
 
+import { useForm } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import {
 	Button,
@@ -25,8 +26,7 @@ const ConfirmPresence = () => {
 
 	const router = useRouter();
 
-	const handleOpen = () =>
-		setOpen(true);
+	const { register, handleSubmit, formState: { errors } } = useForm();
 
 	const handleClose = () =>
 		setOpen(false);
@@ -64,6 +64,11 @@ const ConfirmPresence = () => {
 		return inputs;
 	};
 
+	const handleSubmitConfirmation = (data) => {
+		setOpen(true);
+		return console.log(data);
+	};
+
 	return (
 		<>
 			<div className={s.container}>
@@ -72,13 +77,24 @@ const ConfirmPresence = () => {
 					Confirme sua presença abaixo e não esqueça de colocar<br/>
 					quantos membros da sua família irão.
 				</span>
-				<div className={s.formContainer}>
+				<form className={s.formContainer} onSubmit={handleSubmit(handleSubmitConfirmation)}>
 					<div className={s.row}>
 						<div className={s.col25}>
 							<label>Nome completo*</label>
 						</div>
 						<div className={s.col75}>
-							<TextField size='small' placeholder='Digite seu nome aqui' fullWidth required/>
+							<input
+								className={s.textField}
+								placeholder='Digite seu nome aqui'
+								{...register('name', { required: true, maxLength: 25, pattern: /^[A-Z a-z]+$/i })}
+							/>
+							{errors?.name?.type === 'required' && <p className={s.inputError}>Campo obrigatório.</p>}
+							{errors?.name?.type === 'maxLength' && (
+								<p className={s.inputError}>O campo não pode conter mais que 20 caracteres</p>
+							)}
+							{errors?.name?.type === 'pattern' && (
+								<p className={s.inputError}>Apenas caracteres alfabéticos.</p>
+							)}
 						</div>
 					</div>
 					<div className={s.row}>
@@ -92,12 +108,12 @@ const ConfirmPresence = () => {
 							<RadioGroup
 								name="radio-buttons-group"
 								row
-								required
+								{...register('wedding', { required: true })}
 							>
 								<FormControlLabel value="sim" control={<Radio />} label="Sim" color='primary'/>
 								<FormControlLabel value="não" control={<Radio />} label="Não" color='primary'/>
-
 							</RadioGroup>
+							{errors?.wedding?.type === 'required' && <p className={s.inputError}>Campo obrigatório.</p>}
 						</div>
 					</div>
 					<div className={s.row}>
@@ -111,11 +127,12 @@ const ConfirmPresence = () => {
 							<RadioGroup
 								name="radio-buttons-group"
 								row
-								required
+								{...register('restaurant', { required: true })}
 							>
 								<FormControlLabel value="sim" control={<Radio />} label="Sim" color='primary'/>
 								<FormControlLabel value="não" control={<Radio />} label="Não" color='primary'/>
 							</RadioGroup>
+							{errors?.restaurant?.type === 'required' && <p className={s.inputError}>Campo obrigatório.</p>}
 						</div>
 					</div>
 					<div className={s.row}>
@@ -123,91 +140,102 @@ const ConfirmPresence = () => {
 							<label>Email*</label>
 						</div>
 						<div className={s.col75}>
-							<TextField size='small' placeholder='exemplo@gmail.com' fullWidth required/>
+							<input
+								className={s.textField}
+								placeholder='exemplo@gmail.com'
+								type='email'
+								{...register('email', {
+									required: true,
+									pattern: /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/
+								})}
+							/>
+							{errors?.email?.type === 'required' && <p className={s.inputError}>Campo obrigatório.</p>}
+							{errors?.email?.type === 'pattern' && (
+								<p className={s.inputError}>Email inválido.</p>
+							)}
 						</div>
 					</div>
 					<div className={s.row}>
 						<div className={s.col25}>
-							<label>Observações*</label>
+							<label>Observações</label>
 						</div>
 						<div className={s.col75}>
-							<TextField
-								placeholder='Deixe aqui suas observações'
-								fullWidth
-								required
+							<textarea
 								className={s.obs}
+								placeholder='Deixe aqui suas observações'
+								{...register('description')}
 							/>
 						</div>
 					</div>
-				</div>
-				<div className={s.companionsContainer}>
-					<span className={s.spanTitle}>Quantos acompanhantes?</span>
-					<div className={s.row}>
-						<div className={s.col25}>
-							<label>Adultos</label>
-						</div>
-						<div className={s.col75}>
-							<div>
-								<IconButton
-									size='small'
-									onClick={() => setAdultCounter(adultCounter - 1)}
-									disabled={adultCounter == 0 ? true : false}
-									color='primary'
-								>
-									<RemoveIcon />
-								</IconButton>
-								<span className={s.counterSpan}>{adultCounter}</span>
-								<IconButton
-									size='small'
-									onClick={() => setAdultCounter(adultCounter + 1)}
-									disabled={adultCounter == 5 ? true : false}
-									color='primary'
-								>
-									<AddIcon />
-								</IconButton>
+					<div className={s.companionsContainer}>
+						<span className={s.spanTitle}>Quantos acompanhantes?</span>
+						<div className={s.row}>
+							<div className={s.col25}>
+								<label>Adultos</label>
+							</div>
+							<div className={s.col75}>
+								<div>
+									<IconButton
+										size='small'
+										onClick={() => setAdultCounter(adultCounter - 1)}
+										disabled={adultCounter == 0 ? true : false}
+										color='primary'
+									>
+										<RemoveIcon />
+									</IconButton>
+									<span className={s.counterSpan}>{adultCounter}</span>
+									<IconButton
+										size='small'
+										onClick={() => setAdultCounter(adultCounter + 1)}
+										disabled={adultCounter == 5 ? true : false}
+										color='primary'
+									>
+										<AddIcon />
+									</IconButton>
+								</div>
 							</div>
 						</div>
-					</div>
-					{ adultCounter > 0 ? (
-						renderAdultInput(adultCounter)
-					) : (<></>) }
-					<div className={s.row}>
-						<div className={s.col25}>
-							<label>Crianças</label>
-						</div>
-						<div className={s.col75}>
-							<div>
-								<IconButton
-									size='small'
-									onClick={() => setChildCounter(childCounter - 1)}
-									disabled={childCounter == 0 ? true : false}
-									color='primary'
-								>
-									<RemoveIcon />
-								</IconButton>
-								<span className={s.counterSpan}>{childCounter}</span>
-								<IconButton
-									size='small'
-									onClick={() => setChildCounter(childCounter + 1)}
-									disabled={childCounter == 5 ? true : false}
-									color='primary'
-								>
-									<AddIcon />
-								</IconButton>
+						{ adultCounter > 0 ? (
+							renderAdultInput(adultCounter)
+						) : (<></>) }
+						<div className={s.row}>
+							<div className={s.col25}>
+								<label>Crianças</label>
+							</div>
+							<div className={s.col75}>
+								<div>
+									<IconButton
+										size='small'
+										onClick={() => setChildCounter(childCounter - 1)}
+										disabled={childCounter == 0 ? true : false}
+										color='primary'
+									>
+										<RemoveIcon />
+									</IconButton>
+									<span className={s.counterSpan}>{childCounter}</span>
+									<IconButton
+										size='small'
+										onClick={() => setChildCounter(childCounter + 1)}
+										disabled={childCounter == 5 ? true : false}
+										color='primary'
+									>
+										<AddIcon />
+									</IconButton>
+								</div>
 							</div>
 						</div>
+						{ childCounter > 0 ? (
+							renderChildInput(childCounter)
+						) : (<></>) }
 					</div>
-					{ childCounter > 0 ? (
-						renderChildInput(childCounter)
-					) : (<></>) }
-				</div>
-				<Button
-					className={s.confirmButton}
-					variant='contained'
-					onClick={handleOpen}
-				>
+					<Button
+						className={s.confirmButton}
+						variant='contained'
+						type='submit'
+					>
 					Confirmar presença
-				</Button>
+					</Button>
+				</form>
 				<Modal
 					open={open}
 					onClose={handleClose}

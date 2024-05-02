@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-top: 50px;
+	margin-top: 180px;
 
 	@media screen and (max-width: 543px) {
 		margin: 25px;
@@ -55,7 +55,6 @@
 
 .row {
 	display: flex;
-	align-items: center;
 	font-family: 'Cinzel', serif;
 	font-weight: 400;
 	font-style: normal;
@@ -116,8 +115,7 @@
 }
 
 .companionsContainer {
-	margin-top: 50px;
-	width: 35%;
+	margin-top: 60px;
 
 	@media screen and (max-width: 1350px) {
 		width: 55%;
@@ -148,6 +146,51 @@
 		color: #A787FF;
 		transition: all 0.3s;
 	}
+}
+
+.textField {
+	padding: 12px;
+	border-radius: 7px;
+	width: 320px;
+	height: 20px;
+	border: #A7A7A7 solid 1px;
+
+	font-family: "Varela", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	resize: none;
+
+	&:focus {
+		outline: none !important;
+   		border:1.2px solid #A787FF;
+	}
+}
+
+.obs {
+	padding: 12px;
+	border-radius: 7px;
+	width: 320px;
+	height: 100px;
+	border: #A7A7A7 solid 1px;
+
+	font-family: "Varela", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	resize: none;
+
+	&:focus {
+		outline: none !important;
+   		border:2px solid #A787FF;
+	}
+}
+
+.inputError {
+	color: red;
+	font-family: "Varela", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 12px;
+	margin: 2px 5px 5px 5px;
 }
 
 // MODAL

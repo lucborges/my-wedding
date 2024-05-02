@@ -90,9 +90,51 @@
 	}
 }
 
-.description {
-	input {
-		height: 80px;
-		resize: none;
+.textField {
+	padding: 12px;
+	border-radius: 7px;
+	width: 385px;
+	height: 20px;
+	border: #A7A7A7 solid 1px;
+
+	font-family: "Varela", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	resize: none;
+
+	&:focus {
+		outline: none !important;
+   		border:1.2px solid #A787FF;
 	}
+}
+
+.description {
+	padding: 12px;
+	border-radius: 7px;
+	width: 385px;
+	height: 150px;
+	border: #A7A7A7 solid 1px;
+
+	font-family: "Varela", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	resize: none;
+
+	&:focus {
+		outline: none !important;
+   		border:2px solid #A787FF;
+	}
+}
+
+.total {
+	margin-top: 35px;
+}
+
+.inputError {
+	color: red;
+	font-family: "Varela", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 12px;
+	margin: 2px 5px 5px 5px;
 }
