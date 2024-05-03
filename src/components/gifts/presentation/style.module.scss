@@ -37,6 +37,11 @@
 	font-size: 18px;
 }
 
+.giftImage {
+	object-fit: cover;
+	image-rendering: optimizeQuality;
+}
+
 .giftValue {
 	font-size: 24px;
 	color: #538A61;

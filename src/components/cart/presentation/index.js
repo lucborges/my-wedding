@@ -52,7 +52,7 @@ const Cart = () => {
 												Remover
 													</span>
 												</div>
-												<span className={s.value}>{formatBrazilianMoney(item.value)}</span>
+												<span className={s.value}>{formatBrazilianMoney(item.price)}</span>
 											</div>
 										</div>
 									</li>

@@ -47,7 +47,7 @@ export const CartProvider = ({ children }) => {
 	};
 
 	const getCartTotal = () => {
-		return cartItems.reduce((total, item) => total + item.value, 0); // calculate the total price of the items in the cart
+		return cartItems.reduce((total, item) => total + item.price, 0); // calculate the total price of the items in the cart
 	};
 
 	useEffect(() => {
