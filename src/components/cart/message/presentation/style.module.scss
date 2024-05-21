@@ -138,3 +138,66 @@
 	font-size: 12px;
 	margin: 2px 5px 5px 5px;
 }
+
+// Modal
+
+.modalContainer {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 15px;
+	background-color: #fff;
+	padding: 15px;
+
+	@media screen and (max-width: 873px) {
+		width: 80%;
+	}
+}
+
+.spinnerContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-width: 600px;
+	min-height: 550px;
+
+	@media screen and (max-width: 805px) {
+		padding: 5px;
+	}
+	@media screen and (max-width: 745px) {
+		min-width: 0;
+		width: 570px;
+	}
+
+	@media screen and (max-width: 700px) {
+		min-width: 0;
+		width: 490px;
+	}
+
+	@media screen and (max-width: 618px) {
+		min-width: 0;
+		width: 350px;
+	}
+
+	@media screen and (max-width: 438px) {
+		min-width: 0;
+		margin-left: 5px;
+		width: 300px;
+	}
+}
+
+.spinnerSpan {
+	margin-top: 15px;
+	font-family: 'Varela', serif;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 24px;
+
+	@media screen and (max-width: 550px) {
+		font-size: 16px;
+	}
+}

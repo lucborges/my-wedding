@@ -107,6 +107,8 @@
 }
 
 .image {
+	object-fit: cover;
+	image-rendering: optimizeQuality;
 	@media screen and (max-width: 535px) {
 		width: 80px;
 		height: 80px;

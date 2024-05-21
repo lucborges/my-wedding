@@ -41,7 +41,7 @@ const Cart = () => {
 								<>
 									<li>
 										<div className={s.cartItem}>
-											<Image src={'/sadia.png'} width={122} height={122} className={s.image}/>
+											<Image src={item.image} width={122} height={122} className={s.image}/>
 											<div className={s.cartContent}>
 												<div className={s.column}>
 													<span className={s.itemName}>{item.name}</span>

@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-top: 180px;
+	margin-top: 130px;
 
 	@media screen and (max-width: 543px) {
 		margin: 25px;
@@ -39,17 +39,19 @@
 .formContainer {
 	margin-top: 40px;
 	width: 35%;
+	display: flex;
+	flex-direction: column;
 
 	@media screen and (max-width: 1350px) {
 		width: 55%;
 	}
 
-	@media screen and (max-width: 730px) {
-		width: 75%;
+	@media screen and (max-width: 745x) {
+		width: 90%;
 	}
 
 	@media screen and (max-width: 543px) {
-		width: 85%;
+		width: 100%;
 	}
 }
 
@@ -60,7 +62,7 @@
 	font-style: normal;
 	font-size: 20px;
 
-	@media screen and (max-width: 543px) {
+	@media screen and (max-width: 745px) {
 		flex-direction: column;
 	}
 }
@@ -75,7 +77,7 @@
 		padding: 0 12px 0 0;
 	}
 
-	@media screen and (max-width: 543px) {
+	@media screen and (max-width: 634px) {
 		width: 100%;
 		margin-top: 25px;
 	}
@@ -86,7 +88,7 @@
 	width: 50%;
 	margin-top: 12px;
 
-	@media screen and (max-width: 543px) {
+	@media screen and (max-width: 634px) {
 		width: 100%;
 		margin-top: 0;
 	}
@@ -112,6 +114,12 @@
 	text-transform: none;
 	margin-top: 35px;
 	margin-bottom: 35px;
+	width: 40%;
+	align-self: center;
+
+	@media screen and (max-width: 656px) {
+		width: 60%;
+	}
 }
 
 .companionsContainer {
@@ -180,7 +188,7 @@
 
 	&:focus {
 		outline: none !important;
-   		border:2px solid #A787FF;
+   		border:1px solid #A787FF;
 	}
 }
 
@@ -193,10 +201,16 @@
 	margin: 2px 5px 5px 5px;
 }
 
+.escortsName {
+	font-size: 18px;
+}
+
 // MODAL
 
 .modalContainer {
 	position: absolute;
+	display: flex;
+	align-items: center;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -213,10 +227,79 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	padding: 35px;
+	min-width: 600px;
+	min-height: 550px;
 
 	@media screen and (max-width: 805px) {
 		padding: 5px;
+	}
+
+	@media screen and (max-width: 745px) {
+		min-width: 0;
+		width: 570px;
+	}
+
+	@media screen and (max-width: 700px) {
+		min-width: 0;
+		width: 490px;
+	}
+
+	@media screen and (max-width: 618px) {
+		min-width: 0;
+		width: 350px;
+	}
+
+	@media screen and (max-width: 438px) {
+		min-width: 0;
+		margin-left: 5px;
+		width: 300px;
+	}
+}
+
+.spinnerContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-width: 600px;
+	min-height: 550px;
+
+	@media screen and (max-width: 805px) {
+		padding: 5px;
+	}
+	@media screen and (max-width: 745px) {
+		min-width: 0;
+		width: 570px;
+	}
+
+	@media screen and (max-width: 700px) {
+		min-width: 0;
+		width: 490px;
+	}
+
+	@media screen and (max-width: 618px) {
+		min-width: 0;
+		width: 350px;
+	}
+
+	@media screen and (max-width: 438px) {
+		min-width: 0;
+		margin-left: 5px;
+		width: 300px;
+	}
+}
+
+.spinnerSpan {
+	margin-top: 15px;
+	font-family: 'Varela', serif;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 24px;
+
+	@media screen and (max-width: 550px) {
+		font-size: 16px;
 	}
 }
 
@@ -248,16 +331,27 @@
 .buttonGroup {
 	margin-top: 75px;
 	gap: 25px;
+	width: 65%;
 
 	@media screen and (max-width: 873px) {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 15px;
-		width: 100%;
 	}
 
 	button {
-		width: 55%;
+		width: 100%;
 	}
+}
+
+.modalButtons {
+	font-family: 'Varela';
+	font-weight: 400;
+	font-style: normal;
+	font-size: 16px;
+	border-radius: 25px;
+	width: 40%;
+	align-self: center;
+	text-transform: none;
 }
