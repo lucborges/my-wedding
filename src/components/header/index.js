@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import propTypes from 'prop-types';
 import s from './style.module.scss';
 import Badge from '@mui/material/Badge';
@@ -6,6 +6,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { useRouter } from 'next/navigation';
+import { CartContext } from '@/context/cart';
 
 const Header = ({ children }) => {
 	const router = useRouter();
@@ -14,6 +15,8 @@ const Header = ({ children }) => {
 		width: 0,
 		height: 0,
 	});
+
+	const { cartItems } = useContext(CartContext);
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -67,7 +70,12 @@ const Header = ({ children }) => {
 					</nav>
 					<div className={s.rightIcons}>
 						<div>
-							<Badge badgeContent={2} color="error" className={s.badge}>
+							<Badge
+								badgeContent={cartItems.length}
+								color="error"
+								className={s.badge}
+								onClick={() => router.push('/carrinho')}
+							>
 								<ShoppingCartIcon fontSize='large' className={s.cart} />
 							</Badge>
 						</div>

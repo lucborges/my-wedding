@@ -1,0 +1,54 @@
+.giftContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 140px;
+}
+.title {
+	font-family: 'Cinzel', serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 36px;
+}
+
+.cardContainer {
+	display: flex;
+	justify-content: space-around;
+	gap: 170px;
+	flex-wrap: wrap;
+	margin-right: 35px;
+}
+
+.giftCard {
+	font-family: 'Varela';
+	font-weight: 400;
+	font-style: normal;
+	width: 350px;
+	height: 410px;
+	background-color: #FCFCFC;
+	border: #938AFF solid 1px;
+	border-radius: 15px;
+	text-align: center;
+	list-style: none;
+	padding: 25px;
+}
+
+.giftName {
+	font-size: 18px;
+}
+
+.giftImage {
+	object-fit: cover;
+	image-rendering: optimizeQuality;
+}
+
+.giftValue {
+	font-size: 24px;
+	color: #538A61;
+}
+
+.button {
+	color: #fff;
+	width: 170px;
+	border-radius: 25px;
+}
