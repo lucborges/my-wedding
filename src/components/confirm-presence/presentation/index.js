@@ -232,7 +232,7 @@ const ConfirmPresence = () => {
 					<div className={s.row}>
 						<div className={s.col25}>
 							<label>Você irá à cerimônia?*</label>
-							<FormHelperText className={s.helper} onClick={() => router.push('/mais-informacoes')}>
+							<FormHelperText className={s.helper} onClick={() => router.push('/nosso-casamento')}>
 								Mais informações sobre à cerimônia
 							</FormHelperText>
 						</div>
@@ -263,7 +263,7 @@ const ConfirmPresence = () => {
 					<div className={s.row}>
 						<div className={s.col25}>
 							<label>Você irá ao restaurante?*</label>
-							<FormHelperText className={s.helper} onClick={() => router.push('/mais-informacoes')}>
+							<FormHelperText className={s.helper} onClick={() => router.push('/nosso-casamento')}>
 								Mais informações sobre o restaurante
 							</FormHelperText>
 						</div>
