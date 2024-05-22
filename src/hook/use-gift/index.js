@@ -16,7 +16,8 @@ export const useGetCheckoutLink = async (data) => {
 			email: data.checkoutModel.email,
 			message: data.checkoutModel.message
 		},
-		items: data.checkoutModel.items
+		items: data.checkoutModel.items,
+		redirect_url: 'localhost:3000/pagamento-concluido'
 	}
 	).then((data) => data.data);
 };

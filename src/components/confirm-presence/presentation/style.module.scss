@@ -172,6 +172,10 @@
 		outline: none !important;
    		border:1.2px solid #A787FF;
 	}
+
+	@media screen and (max-width: 412px) {
+		width: 285px;
+	}
 }
 
 .obs {
@@ -189,6 +193,10 @@
 	&:focus {
 		outline: none !important;
    		border:1px solid #A787FF;
+	}
+
+	@media screen and (max-width: 412px) {
+		width: 285px;
 	}
 }
 
