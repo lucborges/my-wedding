@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
+
+import { config as dotenvConfig } from 'dotenv';
+import webpack from 'webpack'; // Importa o webpack
+
 const nextConfig = {
 	async headers() {
 		return [
@@ -13,7 +17,20 @@ const nextConfig = {
 				]
 			}
 		];
-	}
+	},
 };
 
-export default nextConfig;
+dotenvConfig()
+
+export default {
+	...nextConfig, // Mantém as configurações do Next.js existentes
+	webpack(config) {
+		// Verifica se config.plugins está definido
+		if (!config.plugins) {
+			config.plugins = [];
+		}
+		// Adiciona as variáveis de ambiente ao webpack
+		config.plugins.push(new webpack.EnvironmentPlugin(process.env));
+		return config;
+	},
+};
