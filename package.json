@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build webpack --env production --env WEDDING_SERVICE_URL=$WEDDING_SERVICE_URL",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
