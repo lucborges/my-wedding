@@ -3,7 +3,7 @@ import axios from 'axios';
 // config();
 
 export const http = axios.create({
-	baseURL: "http://my-wedding-service-production.up.railway.app",
+	baseURL: "https://my-wedding-service-production.up.railway.app",
 	headers: {
 		'Content-Type': 'application/json',
 		'Access-Control-Allow-Origin': '*',
