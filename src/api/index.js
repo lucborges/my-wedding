@@ -1,7 +1,9 @@
 import axios from 'axios';
+import { config } from 'dotenv';
+config();
 
 export const http = axios.create({
-	baseURL: process.env.REACT_APP_WEDDING_SERVICE_URL,
+	baseURL: process.env.WEDDING_SERVICE_URL,
 	headers: {
 		'Content-Type': 'application/json',
 		'Access-Control-Allow-Origin': '*',
