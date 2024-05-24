@@ -27,11 +27,7 @@ export default {
 	webpack(config) {
 		// Verifica se config.plugins está definido
 		if (!config.plugins) {
-			config.plugins = [
-				new Dotenv({
-					systemvars: true
-				  })
-			];
+			config.plugins = []
 		}
 		// Adiciona as variáveis de ambiente ao webpack
 		config.plugins.push(new webpack.EnvironmentPlugin(process.env));

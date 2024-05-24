@@ -2,8 +2,6 @@ import axios from 'axios';
 import { config } from 'dotenv';
 config();
 
-console.log(process.env.WEDDING_SERVICE_URL)
-
 export const http = axios.create({
 	baseURL: process.env.WEDDING_SERVICE_URL,
 	headers: {
