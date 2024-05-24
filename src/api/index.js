@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { config } from 'dotenv';
-config();
+// import { config } from 'dotenv';
+// config();
 
 export const http = axios.create({
-	baseURL: process.env.WEDDING_SERVICE_URL,
+	baseURL: "http://my-wedding-service-production.up.railway.app",
 	headers: {
 		'Content-Type': 'application/json',
 		'Access-Control-Allow-Origin': '*',
