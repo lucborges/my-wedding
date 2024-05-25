@@ -25,5 +25,5 @@ coverage
 .npm
 .eslintcache
 
-.env
+.env.local
 .next

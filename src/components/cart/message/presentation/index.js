@@ -12,7 +12,7 @@ import { useGetCheckoutLink, useSaveGiftMessage } from '@/hook/use-gift';
 import { CartContext } from '@/context/cart';
 import { useMutation } from '@tanstack/react-query';
 import Spinner from '@/components/spinner';
-
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Message = ({ total }) => {
 	const { register, handleSubmit, formState: { errors } } = useForm();
@@ -23,6 +23,11 @@ const Message = ({ total }) => {
 	const [email, setEmail] = useState(null);
 	const [customerMessage, setCustomerMessage] = useState(null);
 	const [open, setOpen] = useState(false);
+	const [reCaptchaToken, setReCaptchaToken] = useState('');
+	const [recaptchaItsNotCompletable, setRecaptchaItsNotCompletable] = useState(false);
+	const handleRecaptcha = (value) => {
+		setReCaptchaToken(value);
+	}
 
 	const handleClose = () => setOpen(false);
 
@@ -63,18 +68,24 @@ const Message = ({ total }) => {
 		router.push(checkoutLink);
 	}
 
-	const handleSubmitMessage = async () => {
-		try {
-			setOpen(true);
-			await saveGiftMessage({
-				messageModel
-			});
-			pushCartItems();
-			await getCheckoutLink({
-				checkoutModel
-			});
-		} catch (error) {
-			return;
+	const handleSubmitMessage = async (e) => {
+		if (reCaptchaToken) {
+			console.log("entrei no if")
+			try {
+				setOpen(true);
+				await saveGiftMessage({
+					messageModel
+				});
+				pushCartItems();
+				await getCheckoutLink({
+					checkoutModel
+				});
+			} catch (error) {
+				return;
+			}
+		} else {
+			console.log("entrei no else")
+			setRecaptchaItsNotCompletable(true);
 		}
 	};
 
@@ -147,6 +158,16 @@ const Message = ({ total }) => {
 								onInput={(e) => handleSetCustomerMessage(e)}
 							/>
 						</div>
+					</div>
+					<div className={s.recaptchaContainer}>
+						<ReCAPTCHA
+							sitekey={process.env.SITE_KEY}
+							onChange={(val) => {
+								handleRecaptcha(val);
+								setRecaptchaItsNotCompletable(false);
+							}}
+						/>
+						{recaptchaItsNotCompletable && <span className={s.validRecaptcha}>Valide o reCAPTCHA</span>}
 					</div>
 					<span className={s.total}>{`Total: ${formatBrazilianMoney(total)}`}</span>
 					<Stack direction="row" className={s.buttonGroup}>
