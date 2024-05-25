@@ -161,7 +161,7 @@ const Message = ({ total }) => {
 					</div>
 					<div className={s.recaptchaContainer}>
 						<ReCAPTCHA
-							sitekey={process.env.SITE_KEY}
+							sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
 							onChange={(val) => {
 								handleRecaptcha(val);
 								setRecaptchaItsNotCompletable(false);
