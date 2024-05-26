@@ -20,6 +20,7 @@ import { useConfirmPresence, useSendEmail } from '@/hook/use-confirm-presence';
 import { useMutation } from '@tanstack/react-query';
 import { toast, ToastContainer } from 'react-toastify';
 import Spinner from '@/components/spinner';
+import ReCAPTCHA from "react-google-recaptcha";
 
 const ConfirmPresence = () => {
 	const [escortsCounter, setEscortsCounter] = useState(1);
@@ -30,6 +31,11 @@ const ConfirmPresence = () => {
 	const [restaurant, setRestaurant] = useState(null);
 	const [escortsInput, setEscortsInput] = useState([{ value: '' }]);
 	const [open, setOpen] = useState(false);
+	const [reCaptchaToken, setReCaptchaToken] = useState('');
+	const [recaptchaItsNotCompletable, setRecaptchaItsNotCompletable] = useState(false);
+	const handleRecaptcha = (value) => {
+		setReCaptchaToken(value);
+	}
 
 	const { mutateAsync: savePresence, isError, isPending, data } = useMutation({
 		mutationFn: useConfirmPresence,
@@ -98,14 +104,18 @@ const ConfirmPresence = () => {
 	};
 
 	const handleSubmitConfirmation = async () => {
-		try {
-			setOpen(true);
-			await savePresence({
-				presenceModel
-			});
+		if (reCaptchaToken) {
+			try {
+				setOpen(true);
+				await savePresence({
+					presenceModel
+				});
 
-		} catch (error) {
-			return;
+			} catch (error) {
+				return;
+			}
+		} else {
+			setRecaptchaItsNotCompletable(true);
 		}
 	};
 
@@ -376,6 +386,16 @@ const ConfirmPresence = () => {
 							}
 							)
 						) : (<></>)}
+					</div>
+					<div className={s.recaptchaContainer}>
+						<ReCAPTCHA
+							sitekey={process.env.SITE_KEY}
+							onChange={(val) => {
+								handleRecaptcha(val);
+								setRecaptchaItsNotCompletable(false);
+							}}
+						/>
+						{recaptchaItsNotCompletable && <span className={s.validRecaptcha}>Valide o reCAPTCHA</span>}
 					</div>
 					<Button
 						className={s.confirmButton}

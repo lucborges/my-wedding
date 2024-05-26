@@ -213,6 +213,20 @@
 	font-size: 18px;
 }
 
+.recaptchaContainer {
+	display: flex;
+	flex-direction: column;
+	margin: 20px 0 20px 0;
+}
+
+.validRecaptcha {
+	color: red;
+	font-family: "Varela", sans-serif;
+	font-size: 14px;
+	font-weight: 100;
+}
+
+
 // MODAL
 
 .modalContainer {
