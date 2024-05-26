@@ -101,6 +101,8 @@ const Message = ({ total }) => {
 		setCustomerMessage(e.target.value);
 	};
 
+	console.log(process.env.SITE_KEY)
+
 	return (
 		<>
 			<div className={s.container}>
