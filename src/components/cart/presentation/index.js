@@ -3,10 +3,8 @@ import s from './style.module.scss';
 import { CartContext } from '@/context/cart';
 import Image from 'next/image';
 import { formatBrazilianMoney } from '@/lib/formatBrazilianMoney';
-import {
-	Button,
-	Stack
-} from '@mui/material';
+import { Stack } from '@mui/material';
+import Button from '@/components/button';
 import { useRouter } from 'next/navigation';
 import Message from '../message/presentation';
 
@@ -64,21 +62,19 @@ const Cart = () => {
 							<div></div>
 							<span className={s.total}>{`Total: ${formatBrazilianMoney(getCartTotal())}`}</span>
 						</div>
-						<Stack direction="row" className={s.buttonGroup}>
+						<div className={s.buttonGroup}>
 							<Button
-								variant='outlined'
+								appearance='secondary'
 								onClick={() => router.push('/lista-de-presentes')}
 							>
 								Adicionar mais itens
 							</Button>
 							<Button
-								variant='contained'
-								style={{ color: '#fff'}}
 								onClick={() => handleIsFinished()}
 							>
 								Continuar compra
 							</Button>
-						</Stack>
+						</div>
 					</>
 				) : (
 					<h1>O Carrinho está vazio.</h1>

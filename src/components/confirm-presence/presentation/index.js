@@ -4,7 +4,6 @@ import { useRouter } from 'next/navigation';
 
 import { useForm } from 'react-hook-form';
 import {
-	Button,
 	FormControlLabel,
 	FormHelperText,
 	IconButton,
@@ -21,6 +20,7 @@ import { useMutation } from '@tanstack/react-query';
 import { toast, ToastContainer } from 'react-toastify';
 import Spinner from '@/components/spinner';
 import ReCAPTCHA from "react-google-recaptcha";
+import Button from '@/components/button';
 
 const ConfirmPresence = () => {
 	const [escortsCounter, setEscortsCounter] = useState(1);
@@ -399,7 +399,7 @@ const ConfirmPresence = () => {
 					</div>
 					<Button
 						className={s.confirmButton}
-						variant='contained'
+						appearance={handleDisableButton(restaurant, ceremony) ? 'disable' : 'primary'}
 						type='submit'
 						disabled={handleDisableButton(restaurant, ceremony)}
 					>

@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import s from './style.module.scss';
 import propTypes from 'prop-types';
 
-import { Button, Stack } from '@mui/material';
+import Button from '@/components/button';
 import { formatBrazilianMoney } from '@/lib/formatBrazilianMoney';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
@@ -168,16 +168,19 @@ const Message = ({ total }) => {
 						{recaptchaItsNotCompletable && <span className={s.validRecaptcha}>Valide o reCAPTCHA</span>}
 					</div>
 					<span className={s.total}>{`Total: ${formatBrazilianMoney(total)}`}</span>
-					<Stack direction="row" className={s.buttonGroup}>
-						<Button variant='outlined' onClick={() => router.refresh()}>Voltar para o carrinho</Button>
+					<div className={s.buttonGroup}>
 						<Button
-							variant='contained'
-							style={{ color: '#fff'}}
+							onClick={() => router.refresh()}
+							appearance='secondary'
+						>
+							Voltar para o carrinho
+						</Button>
+						<Button
 							type='submit'
 						>
 							Concluir compra
 						</Button>
-					</Stack>
+					</div>
 				</form>
 				<Modal
 					open={open}
