@@ -1,0 +1,85 @@
+.primaryButton {
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	margin: 10px;
+	border: 0;
+	border-radius: 5px;
+	padding: 12px 24px;
+	background-color: #A787FF;
+	fill: #ffff;
+	cursor: pointer;
+	font-weight: 600;
+	color: #ffff;
+	letter-spacing: 1.2;
+	font-family: 'Varela';
+	font-style: normal;
+	font-size: 16px;
+
+	&:hover {
+		background-color: #846bca;
+		transition: all 0.3s;
+	}
+}
+
+.primaryButton svg {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 7px;
+}
+
+.secondaryButton {
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	margin: 10px;
+	border: 2px solid;
+	border-color: #A787FF;
+	border-radius: 5px;
+	padding: 12px 24px;
+	background-color: #ffff;
+	fill: #A787FF;
+	cursor: pointer;
+	font-weight: 600;
+	color: #A787FF;
+	letter-spacing: 1.2;
+	font-family: 'Varela';
+	font-style: normal;
+	font-size: 16px;
+
+	&:hover {
+		background-color: #f1f1f1;
+	}
+}
+
+.secondaryButton svg {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 7px;
+}
+
+.disableButton {
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	opacity: 0.6;
+	margin: 10px;
+	border: 0;
+	border-radius: 5px;
+	padding: 12px 24px;
+	background-color: #A787FF;
+	cursor: default;
+	fill: #ffff;
+	font-weight: 600;
+	color: #ffff;
+	letter-spacing: 1.2;
+	font-family: 'Varela';
+	font-style: normal;
+	font-size: 16px;
+}
+
+.disableButton svg {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 7px;
+}
