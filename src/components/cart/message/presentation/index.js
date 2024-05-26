@@ -70,7 +70,6 @@ const Message = ({ total }) => {
 
 	const handleSubmitMessage = async (e) => {
 		if (reCaptchaToken) {
-			console.log("entrei no if")
 			try {
 				setOpen(true);
 				await saveGiftMessage({
@@ -84,7 +83,6 @@ const Message = ({ total }) => {
 				return;
 			}
 		} else {
-			console.log("entrei no else")
 			setRecaptchaItsNotCompletable(true);
 		}
 	};
@@ -100,8 +98,6 @@ const Message = ({ total }) => {
 	const handleSetCustomerMessage = (e) => {
 		setCustomerMessage(e.target.value);
 	};
-
-	console.log(process.env.SITE_KEY)
 
 	return (
 		<>

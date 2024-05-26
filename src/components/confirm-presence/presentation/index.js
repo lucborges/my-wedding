@@ -210,8 +210,6 @@ const ConfirmPresence = () => {
 		}
 	};
 
-	console.log(process.env.SITE_KEY)
-
 	return (
 		<>
 			<div className={s.container}>
