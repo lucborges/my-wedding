@@ -8,31 +8,38 @@ const Dashboard = () => {
 		const weddingDate = new Date('2024-09-07');
 		const diffTime = Math.abs(currentDate - weddingDate);
 		const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-		return diffDays;
+
+		if (currentDate == weddingDate) {
+			return 'Chegou o grande dia!'
+		}
+
+		return `Faltam apenas ${diffDays} dias`;
 	};
 	return (
 		<>
-			<div className={s.dashboardContent}>
-				<Image
-					className={s.image}
-					src={'/dashboard.png'}
-					width={590}
-					height={600}
-					alt='Casal de noivos' />
+			<div className={s.container}>
+				<div>
+					<Image
+						className={s.image}
+						src={'/dashboard.png'}
+						width={590}
+						height={600}
+						alt='Casal de noivos' />
+				</div>
 				<div className={s.textContent}>
 					<div className={s.titleGroup}>
 						<h1 className={s.title}>Gabrielle & Lucas</h1>
-						<p className={s.remainingDays}>faltam apenas {remainingDays()} dias | 7 de setembro de 2024</p>
+						<p className={s.remainingDays}>{remainingDays()} | 7 de setembro de 2024</p>
 					</div>
 					<span className={s.span}>
-						Seja bem-vindo! É um prazer enorme ter você aqui! <br />
-						Criamos esse site como parte de você estar ainda mais próximo de nós! <br />
-						Por aqui você irá encontrar muitas informações sobre o nosso casamento.
-						<br />
-						<br />
-						Na sessão de confirmação de presença, você pode confirmar se vai ou não ao <br />
-						casamento. Confirme o mais rápido possível, por favor! Pois assim fica mais <br />
-						fácil de organizar tudo.
+					Seja muito bem-vindo! Estamos extremamente felizes em tê-lo aqui!
+					Criamos este site com o objetivo de nos aproximarmos ainda mais de você!
+					Por meio dele, você terá acesso a uma série de informações importantes sobre o nosso casamento.
+					<br/>
+					<br/>
+					Na seção de confirmação de presença, gostaríamos de contar com a sua confirmação sobre a sua participação na cerimônia e no restaurante.
+					Por favor, confirme sua presença o quanto antes, pois isso facilitará muito o processo de organização.
+					Agradecemos desde já pela sua atenção e aguardamos ansiosamente pela sua resposta!
 					</span>
 				</div>
 			</div>
