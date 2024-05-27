@@ -40,6 +40,10 @@ const Header = ({ children }) => {
 		setMenuOpen((p) => !p);
 	};
 
+	const handleCloseMenu = () => {
+		setMenuOpen(false)
+	}
+
 	return (
 		<>
 			<header className={s.header}>
@@ -89,7 +93,12 @@ const Header = ({ children }) => {
 					</div>
 				</div>
 			</header>
-			<div className={s.childrenContent}>{children}</div>
+			<div
+				className={s.childrenContent}
+				onClick={handleCloseMenu}
+			>
+				{children}
+			</div>
 		</>
 	);
 };

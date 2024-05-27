@@ -19,7 +19,7 @@ const OurWedding = () => {
 			<div className={s.container}>
 				<h1 className={s.title}>Nosso Casamento</h1>
 				<span className={s.description}>
-					Nosso casamento foi pensando em principalmente chamar todos aqueles que fizeram e ainda fazem parte,
+					Nosso casamento foi pensado em principalmente chamar todos aqueles que fizeram e ainda fazem parte
 					de nossas vidas. Por isso escolhemos fazer uma cerimônia na igreja e após isso nos reuniremos
 					todos em um restaurante
 					para curtirmos juntos e desfrutar de ótimos momentos!
@@ -34,10 +34,10 @@ const OurWedding = () => {
 				<span className={s.description}>
 					Reservamos um restaurante incrível onde teremos um ótimo espaço para conversar e se divertir após a
 					cerimônia. O restaurante escolhido foi o <a className={s.link} onClick={() => router.push(window.open(ESTANCIA_GRILL_MAPS_LINK, '_blank'))}>Estância Grill em Barão Geraldo</a>, é uma churrascaria que conta com
-					um rodízio de carnes e um buffet com uma grande variedade. O valor cobra do pelo restaurante é de 70 reais
+					um rodízio de carnes e um buffet com uma grande variedade. O valor cobrado pelo restaurante é de R$ 70,00
 					por pessoa (fora bebidas). Todos estão mais do que convidados a comparecer e ter um tempo ainda mais especial
 					conosco!
-					Endereço: Barão Geraldo - Av. Albino J. B. de Oliveira, 271 - Jardim Santa Genebra II (Barao Geraldo), Campinas - SP
+					Endereço: Barão Geraldo - Av. Albino J. B. de Oliveira, 271 - Jardim Santa Genebra II (Barão Geraldo), Campinas - SP
 				</span>
 				<Modal
 					open={open}

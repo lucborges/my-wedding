@@ -1,9 +1,10 @@
-.dashboardContent {
+.container {
 	display: flex;
-	margin: 160px 120px 0 120px;
+	margin: 200px 100px 0 100px;
+	gap: 20px;
 
 	@media screen and (max-width: 1681px) {
-		margin: 130px 80px 0 80px;
+		margin: 170px 80px 0 80px;
 		align-items: center;
 	}
 
