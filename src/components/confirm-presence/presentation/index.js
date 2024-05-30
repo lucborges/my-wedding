@@ -121,8 +121,8 @@ const ConfirmPresence = () => {
 
 	const handleForceSendEmail = async () => {
 		try {
-			await forceSendEmail(customerEmail);
 			toast.success('Email enviado!');
+			await forceSendEmail(customerEmail);
 		} catch (error) {
 			return;
 		}
@@ -146,15 +146,12 @@ const ConfirmPresence = () => {
 						Tente novamente mais tarde, caso não consiga
 						por favor entre em contato conosco.
 					</span>
-					<Stack className={s.buttonGroup}>
-						<Button
-							variant='outlined'
-							className={s.modalButtons}
-							onClick={handleClose}
-						>
-							Fechar
-						</Button>
-					</Stack>
+					<Button
+						className={s.modalButtons}
+						onClick={handleClose}
+					>
+						Fechar
+					</Button>
 				</div>
 			);
 		} else if (errorMessage == 'Email has already send') {
@@ -165,9 +162,16 @@ const ConfirmPresence = () => {
 					<span className={s.modalDescription}>
 						Parece que um convite já foi enviado para esse email.<br/>
 						Valide em seu email se já recebeu seu convite! Caso não tenha<br/>
-						recebido, por favor entre em contato conosco.
+						recebido, clique em "Não recebi o email".
 					</span>
 					<Stack className={s.buttonGroup}>
+						<Button
+							className={s.modalButtons}
+							appearance='secondary'
+							onClick={handleForceSendEmail}
+						>
+							Não recebi o email
+						</Button>
 						<Button
 							variant='outlined'
 							className={s.modalButtons}
@@ -190,9 +194,8 @@ const ConfirmPresence = () => {
 					</span>
 					<Stack className={s.buttonGroup}>
 						<Button
-							variant='contained'
 							className={s.modalButtons}
-							style={{ color: '#fff'}}
+							appearance='secondary'
 							onClick={handleForceSendEmail}
 						>
 							Não recebi o email
@@ -423,7 +426,10 @@ const ConfirmPresence = () => {
 						)}
 					</div>
 				</Modal>
-				<ToastContainer />
+				<ToastContainer
+					containerId={'confirm-presence'}
+					autoClose={3000}
+					limit={1}/>
 			</div>
 		</>
 	);
