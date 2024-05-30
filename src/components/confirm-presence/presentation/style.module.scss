@@ -334,14 +334,14 @@
 
 .buttonGroup {
 	margin-top: 75px;
-	gap: 25px;
 	width: 65%;
+
 
 	@media screen and (max-width: 873px) {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 15px;
+		width: 85%;
 	}
 
 	button {
@@ -356,6 +356,5 @@
 	font-size: 16px;
 	border-radius: 25px;
 	width: 40%;
-	align-self: center;
-	text-transform: none;
+	margin-top: 25px;
 }
