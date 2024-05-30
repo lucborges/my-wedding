@@ -72,7 +72,11 @@ export const CartProvider = ({ children }) => {
 			}}
 		>
 			{children}
-			<ToastContainer />
+			<ToastContainer
+				containerId={'cart'}
+				autoClose={3000}
+				limit={1}
+			/>
 		</CartContext.Provider>
 	);
 };
