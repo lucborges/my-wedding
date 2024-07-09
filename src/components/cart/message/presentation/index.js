@@ -113,11 +113,11 @@ const Message = ({ total }) => {
 								className={s.textField}
 								placeholder='Digite seu nome aqui'
 								onInput={(e) => handleSetCustomerName(e)}
-								{...register('name', { required: true, maxLength: 25, pattern: /^[A-Z a-z]+$/i })}
+								{...register('name', { required: true, maxLength: 70, pattern: /^[A-Z a-z]+$/i })}
 							/>
 							{errors?.name?.type === 'required' && <p className={s.inputError}>Campo obrigatório.</p>}
 							{errors?.name?.type === 'maxLength' && (
-								<p className={s.inputError}>O campo não pode conter mais que 20 caracteres</p>
+								<p className={s.inputError}>O campo não pode conter mais que 70 caracteres</p>
 							)}
 							{errors?.name?.type === 'pattern' && (
 								<p className={s.inputError}>Apenas caracteres alfabéticos.</p>
